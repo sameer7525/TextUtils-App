@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 // import PropTypes from 'prop-types'
 
 
@@ -8,11 +9,11 @@ function Nav(props) {
     <nav className=' bg-gray-800 flex justify-between items-center p-5'>
       <div id='logo'className='text-orange-600'>{props.title}</div>
       <ul className='flex gap-6 text-gray-400'>
-        <a href="#" className='hover:text-orange-400'>Home</a>
-        <a href="#" className='hover:text-orange-400'>About</a>
-        <a href="#" className='hover:text-orange-400'>Contect</a>
-        <a href="#" className='hover:text-orange-400'>Services</a>
         
+         <Link className='hover:text-orange-400' to='/'>Home</Link>
+         <Link className='hover:text-orange-400' to='/tool'>Tools</Link>
+         <Link className='hover:text-orange-400' to='/about'>About</Link>
+         {/* <Link className='hover:text-orange-400' to='/contact'>Contact</Link> */}
       </ul>
     </nav>
   

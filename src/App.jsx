@@ -1,15 +1,26 @@
 import React from "react"
-import Nav from "./component/Nav"
-import TextForm from "./component/TextForm"
+import Nav from "./components/Nav"
+import Footer from './components/Footer'
+import { Route, Routes } from "react-router-dom"
+import Home from "../../../restartL4Router/RouterProject/src/Pages/Home"
+import Tools from "./pages/Tools"
+import About from "../../../restartL4Router/RouterProject/src/Pages/About"
+import Contact from "../../../restartL4Router/RouterProject/src/Pages/Contact"
 
  export default function App() {
   return(
     <>
     <Nav title = "TextUtils"/>
-    <div className="container my-3">
-        <TextForm heading = "Enter the text to analyze"/>
-    </div>
-    
+
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/about" element={<About/>}/>
+      <Route path="/tool" element={<Tools/>}/>
+      {/* <Route path="/contact" element={<Contact/>}/> */}
+    </Routes>
+
+    <Footer/>
+  
     </>
   )
 }

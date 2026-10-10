@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-export default function TextForm(props) {
+export default function Tools() {
   const[text,setText]=useState("");
   const[btntext,setBtntext]=useState("Enable Light Mode")
   
@@ -56,7 +56,7 @@ export default function TextForm(props) {
   return (
   <div className='w-screen h-screen'style={myStyle}>
     <div className='container mx-10'>
-        <h1>{props.heading}</h1>
+        <h1>Enter the text to analyze</h1>
       <div className='mb-3'>
         <textarea className="form-control w-full border-2 border-gray-500 rounded-xl outline-none" value={text} onChange={handleChange} id="myBox" rows="8" placeholder='Enter your text'></textarea>
       </div>
