@@ -2,9 +2,10 @@ import React from "react"
 import Nav from "./components/Nav"
 import Footer from './components/Footer'
 import { Route, Routes } from "react-router-dom"
-import Home from "../../../restartL4Router/RouterProject/src/Pages/Home"
+// import Home from "./Pages/Home"
+import Home from "./pages/Home"
 import Tools from "./pages/Tools"
-import About from "../../../restartL4Router/RouterProject/src/Pages/About"
+import About from "./pages/About"
  export default function App() {
   return(
     <>
