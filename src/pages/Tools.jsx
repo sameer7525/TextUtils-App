@@ -63,6 +63,7 @@ export default function Tools() {
       <button className="btn btn-primary bg-blue-500 rounded p-1 cursor-pointer hover:bg-blue-600" onClick={handleUpClick}>Convert to Uppercase</button>
       <button className="btn btn-primary bg-blue-500 rounded m-4 p-1 cursor-pointer hover:bg-blue-600" onClick={handleLoClick}>Convert to Lowercase</button>
       <button className="btn btn-primary bg-blue-500 rounded p-1 cursor-pointer hover:bg-blue-600" onClick={handleclearClick}>Clear</button>
+      <button className="btn btn-primary bg-blue-500 rounded p-1 cursor-pointer hover:bg-blue-600 m-4">Copy</button>
     </div>
     <div className="container mx-10">
         <h2>Your text summary</h2>

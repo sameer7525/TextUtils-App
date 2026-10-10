@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function Nav(props) {
   return (
     <>
-    <nav className=' bg-gray-800 flex justify-between items-center p-5'>
+    <nav className=' bg-gray-700 flex justify-between items-center p-5 h-14 sticky top-0 z-50'>
       <div id='logo'className='text-orange-600'>{props.title}</div>
       <ul className='flex gap-6 text-gray-400'>
         
