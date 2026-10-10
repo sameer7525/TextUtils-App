@@ -13,7 +13,6 @@ function Nav(props) {
          <Link className='hover:text-orange-400' to='/'>Home</Link>
          <Link className='hover:text-orange-400' to='/tool'>Tools</Link>
          <Link className='hover:text-orange-400' to='/about'>About</Link>
-         {/* <Link className='hover:text-orange-400' to='/contact'>Contact</Link> */}
       </ul>
     </nav>
   

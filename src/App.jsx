@@ -5,8 +5,6 @@ import { Route, Routes } from "react-router-dom"
 import Home from "../../../restartL4Router/RouterProject/src/Pages/Home"
 import Tools from "./pages/Tools"
 import About from "../../../restartL4Router/RouterProject/src/Pages/About"
-import Contact from "../../../restartL4Router/RouterProject/src/Pages/Contact"
-
  export default function App() {
   return(
     <>
@@ -16,7 +14,6 @@ import Contact from "../../../restartL4Router/RouterProject/src/Pages/Contact"
       <Route path="/" element={<Home/>}/>
       <Route path="/about" element={<About/>}/>
       <Route path="/tool" element={<Tools/>}/>
-      {/* <Route path="/contact" element={<Contact/>}/> */}
     </Routes>
 
     <Footer/>
