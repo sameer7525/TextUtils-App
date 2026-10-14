@@ -3,11 +3,11 @@ import { useState } from 'react'
 
 export default function Tools() {
   const[text,setText]=useState("");
-  const[btntext,setBtntext]=useState("Enable Light Mode")
+  const[btntext,setBtntext]=useState("Enable Dark Mode")
   
   const[myStyle,setMystyle]=useState({
-     color:'white',
-     backgroundColor: 'black'
+     color:'black',
+     backgroundColor: 'white'
     })
 
     const handlebgChange=()=>{
@@ -52,10 +52,24 @@ export default function Tools() {
       setText(newText)
     }
 
+    const handleOrgnise = ()=>{
+      let newText = text.replace(/\s+/g, ' ').trim();
+      setText(newText);
+    }
+
+    const handleExtraspaces = ()=>{
+      let newText = text.split(/[ ]+/).join(' ').trim();
+      setText(newText)
+    }
+
+    const copyText = ()=>{
+      navigator.clipboard.writeText(text);
+    }
+
     
   return (
   <div className='w-screen h-screen'style={myStyle}>
-    <div className='container mx-10'>
+    <div className='container mx-5'>
         <h1>Enter the text to analyze</h1>
       <div className='mb-3'>
         <textarea className="form-control w-full border-2 border-gray-500 rounded-xl outline-none" value={text} onChange={handleChange} id="myBox" rows="8" placeholder='Enter your text'></textarea>
@@ -63,7 +77,9 @@ export default function Tools() {
       <button className="btn btn-primary bg-blue-500 rounded p-1 cursor-pointer hover:bg-blue-600" onClick={handleUpClick}>Convert to Uppercase</button>
       <button className="btn btn-primary bg-blue-500 rounded m-4 p-1 cursor-pointer hover:bg-blue-600" onClick={handleLoClick}>Convert to Lowercase</button>
       <button className="btn btn-primary bg-blue-500 rounded p-1 cursor-pointer hover:bg-blue-600" onClick={handleclearClick}>Clear</button>
-      <button className="btn btn-primary bg-blue-500 rounded p-1 cursor-pointer hover:bg-blue-600 m-4">Copy</button>
+      <button className="btn btn-primary bg-blue-500 rounded p-1 cursor-pointer hover:bg-blue-600 m-4" onClick={copyText}>Copy Text</button>
+      <button className="btn btn-primary bg-blue-500 rounded p-1 cursor-pointer hover:bg-blue-600 m-4" onClick={handleOrgnise}>Orginise your text</button>
+      <button className="btn btn-primary bg-blue-500 rounded p-1 cursor-pointer hover:bg-blue-600 m-4" onClick={handleExtraspaces}>Remove Extra Spaces</button>
     </div>
     <div className="container mx-10">
         <h2>Your text summary</h2>
