@@ -2,95 +2,175 @@ import React from 'react'
 import { useState } from 'react'
 
 export default function Tools() {
-  const[text,setText]=useState("");
-  const[btntext,setBtntext]=useState("Enable Dark Mode")
-  
-  const[myStyle,setMystyle]=useState({
-     color:'black',
-     backgroundColor: 'white'
-    })
+const [text, setText] = useState("");
+const [btntext, setBtntext] = useState("Enable Dark Mode")
 
-    const handlebgChange=()=>{
-      if(myStyle.color == "white"){
-        setMystyle({
-          color:"black",
-          backgroundColor:"white"
-        })
-        setBtntext("Enable Dark Mode")
-      }
-      else{
-        setMystyle({
-          color:"white",
-          backgroundColor:"black"
-        })
-        setBtntext("Enable Light Mode")
-      }
-  
-    }
+const [myStyle, setMystyle] = useState({
+color: 'black',
+backgroundColor: 'white'
+})
 
-    const handleUpClick=()=>{
-    //   console.log("upper case was clicked"+text)
-      let newText = text.toUpperCase();
-      setText(newText)
-      
-    }
-
-    const handleLoClick=()=>{
-    //   console.log("upper case was clicked"+text)
-      let newText = text.toLowerCase();
-      setText(newText)
-      
-    }
-
-    const handleChange=(e)=>{
-        // console.log("onChnage")
-        setText(e.target.value)
-    }
-
-    const handleclearClick=()=>{
-      let newText = " "
-      setText(newText)
-    }
-
-    const handleOrgnise = ()=>{
-      let newText = text.replace(/\s+/g, ' ').trim();
-      setText(newText);
-    }
-
-    const handleExtraspaces = ()=>{
-      let newText = text.split(/[ ]+/).join(' ').trim();
-      setText(newText)
-    }
-
-    const copyText = ()=>{
-      navigator.clipboard.writeText(text);
-    }
-
-    
-  return (
-  <div className='w-screen h-screen'style={myStyle}>
-    <div className='container mx-5'>
-        <h1>Enter the text to analyze</h1>
-      <div className='mb-3'>
-        <textarea className="form-control w-full border-2 border-gray-500 rounded-xl outline-none" value={text} onChange={handleChange} id="myBox" rows="8" placeholder='Enter your text'></textarea>
-      </div>
-      <button className="btn btn-primary bg-blue-500 rounded p-1 cursor-pointer hover:bg-blue-600" onClick={handleUpClick}>Convert to Uppercase</button>
-      <button className="btn btn-primary bg-blue-500 rounded m-4 p-1 cursor-pointer hover:bg-blue-600" onClick={handleLoClick}>Convert to Lowercase</button>
-      <button className="btn btn-primary bg-blue-500 rounded p-1 cursor-pointer hover:bg-blue-600" onClick={handleclearClick}>Clear</button>
-      <button className="btn btn-primary bg-blue-500 rounded p-1 cursor-pointer hover:bg-blue-600 m-4" onClick={copyText}>Copy Text</button>
-      <button className="btn btn-primary bg-blue-500 rounded p-1 cursor-pointer hover:bg-blue-600 m-4" onClick={handleOrgnise}>Orginise your text</button>
-      <button className="btn btn-primary bg-blue-500 rounded p-1 cursor-pointer hover:bg-blue-600 m-4" onClick={handleExtraspaces}>Remove Extra Spaces</button>
-    </div>
-    <div className="container mx-10">
-        <h2>Your text summary</h2>
-        <p className='mx-11'>{text.split(" ").length} Words and {text.length} charactor</p>
-        <p className='mx-10'>{0.008*text.split(" ").length} Minutes read</p>
-        <h2>Preview</h2>
-        <p>{text}</p>
-        
-        <button className='px-2 py-1 bg-blue-500 rounded hover:bg-blue-600' onClick={handlebgChange}>{btntext}</button>
-
-    </div>
-  </div>
-  )
+const handlebgChange = () => {
+if (myStyle.color == "white") {
+setMystyle({
+color: "black",
+backgroundColor: "white"
+})
+setBtntext("Enable Dark Mode")
 }
+else {
+setMystyle({
+color: "white",
+backgroundColor: "black"
+})
+setBtntext("Enable Light Mode")
+}
+}
+
+const handleUpClick = () => {
+let newText = text.toUpperCase();
+setText(newText)
+}
+
+const handleLoClick = () => {
+let newText = text.toLowerCase();
+setText(newText)
+}
+
+const handleChange = (e) => {
+setText(e.target.value)
+}
+
+const handleclearClick = () => {
+let newText = ""
+setText(newText)
+}
+
+const handleOrgnise = () => {
+let newText = text.replace(/\s+/g, ' ').trim();
+setText(newText);
+}
+
+const handleExtraspaces = () => {
+let newText = text.split(/[ ]+/).join(' ').trim();
+setText(newText)
+}
+
+const copyText = () => {
+navigator.clipboard.writeText(text);
+}
+
+// Fixed word count for empty text and multiple spaces
+const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+
+return (
+<div className='min-h-screen w-full' style={myStyle}>
+<div className='mx-auto w-full max-w-5xl px-4 py-6 sm:px-6 md:py-8'>
+
+    <h1 className='mb-4 lg:text-2xl font-bold md:text-xl'>
+      Enter the text to analyze
+    </h1>
+
+    <div className='mb-4'>
+      <textarea
+        className="box-border min-h-40 w-full max-w-full resize-y rounded-xl border-2 border-gray-500 p-3 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+        value={text}
+        onChange={handleChange}
+        id="myBox"
+        rows="8"
+        placeholder='Enter your text'
+      />
+    </div>
+
+    <div className='flex flex-wrap gap-2'>
+      <button
+        className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white transition hover:bg-blue-600 sm:text-base"
+        onClick={handleUpClick}
+      >
+        Convert to Uppercase
+      </button>
+
+      <button
+        className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white transition hover:bg-blue-600 sm:text-base"
+        onClick={handleLoClick}
+      >
+        Convert to Lowercase
+      </button>
+
+      <button
+        className="rounded-lg bg-red-500 px-4 py-2 text-sm text-white transition hover:bg-red-600 sm:text-base"
+        onClick={handleclearClick}
+      >
+        Clear
+      </button>
+
+      <button
+        className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white transition hover:bg-blue-600 sm:text-base"
+        onClick={copyText}
+      >
+        Copy Text
+      </button>
+
+      <button
+        className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white transition hover:bg-blue-600 sm:text-base"
+        onClick={handleOrgnise}
+      >
+        Organise Your Text
+      </button>
+
+      <button
+        className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white transition hover:bg-blue-600 sm:text-base"
+        onClick={handleExtraspaces}
+      >
+        Remove Extra Spaces
+      </button>
+    </div>
+
+    <div className='mt-8'>
+      <h2 className='mb-3 text-xl font-bold sm:text-2xl'>
+        Your Text Summary
+      </h2>
+
+      <div className='grid grid-cols-1 gap-3 sm:grid-cols-3'>
+        <div className='rounded-xl border border-blue-300 p-4'>
+          <p className='text-sm opacity-75'>Words</p>
+          <p className='mt-1 text-2xl font-semibold'>{words}</p>
+        </div>
+
+        <div className='rounded-xl border border-blue-300 p-4'>
+          <p className='text-sm opacity-75'>Characters</p>
+          <p className='mt-1 text-2xl font-semibold'>{text.length}</p>
+        </div>
+
+        <div className='rounded-xl border border-blue-300 p-4'>
+          <p className='text-sm opacity-75'>Reading Time</p>
+          <p className='mt-1 text-2xl font-semibold'>
+            {0.008 * words} Minutes
+          </p>
+        </div>
+      </div>
+
+      <h2 className='mb-3 mt-6 text-xl font-bold sm:text-2xl'>
+        Preview
+      </h2>
+
+      <div className='min-h-24 rounded-xl border border-blue-300 p-4'>
+        <p className='break-words whitespace-pre-wrap'>
+          {text || 'Your text preview will appear here...'}
+        </p>
+      </div>
+
+      <button
+        className='mt-5 rounded-lg bg-blue-500 px-4 py-2 transition hover:bg-blue-600'
+        onClick={handlebgChange}
+      >
+        {btntext}
+      </button>
+    </div>
+
+  </div>
+</div>
+
+)
+}
+

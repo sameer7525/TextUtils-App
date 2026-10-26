@@ -1,22 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 // import PropTypes from 'prop-types'
 
 
 function Nav(props) {
+
+  const[isOpen,setIsOpen] = useState(false);
+
   return (
     <>
-    <nav className={`navbar-${props.mode} bg-${props.mode} bg-gray-700 flex justify-between items-center p-5 h-14 sticky top-0 z-50`}>
+    <nav className={`bg-gray-700 flex justify-between items-center p-5 h-14 sticky top-0 z-50`}>
       <div id='logo'className='text-orange-600'>{props.title}</div>
       <ul className='flex gap-6 text-gray-400'>
-        
-         <Link className='hover:text-orange-400' to='/'>Home</Link>
-         <Link className='hover:text-orange-400' to='/tool'>Tools</Link>
-         <Link className='hover:text-orange-400' to='/about'>About</Link>
-         {/* <div className='form-check form-switch'>
-          <input className='form-check-input ' type="checkbox" id='checkboxbtn'/>
-          <label className='form-check-label' for="checkboxbtn">Enable Dark mode</label>
-         </div> */}
+
+        <button onClick={()=>setIsOpen(!isOpen)}
+          className='flex flex-col justify-between w-6 h-5  bg-transparent border-none cursor-pointer focus:outline-none z-50 md:hidden'
+          aria-label='Toggle menu'
+        >
+          <div className={`w-full h-0.5 bg-gray-400 rounded transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2':''}`}></div>
+          <div className={`w-full h-0.5 bg-gray-400 rounded transition-all duration-300 ${isOpen ? 'opacity-0':''}`}></div>
+          <div className={`w-full h-0.5 bg-gray-400 rounded transition-all duration-300 ${isOpen ? '-rotate-45 translate-y-2.5':''}`}></div>
+        </button>
+
+        <div className={`absolute top-14 left-30 right-3 rounded-xl bg-gray-900 shadow-md p-5 flex flex-col gap-4 z-40 transition-all duration-300
+          md:static md:flex md:flex-row md:shadow-none md:p-0 md:h-full md:bg-gray-700 md:items-center md:gap-6 ${isOpen ? 'flex' : 'hidden'}
+          `}>
+         <Link onClick={()=> setIsOpen(false)} className='hover:text-orange-400' to='/'>Home</Link>
+         <Link onClick={()=> setIsOpen(false)} className='hover:text-orange-400' to='/tool'>Tools</Link>
+         <Link onClick={()=> setIsOpen(false)} className='hover:text-orange-400' to='/about'>About</Link>
+
+        </div>
+  
       </ul>
     </nav>
   
