@@ -84,42 +84,42 @@ return (
 
     <div className='flex flex-wrap gap-2'>
       <button
-        className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white transition hover:bg-blue-600 sm:text-base"
+        className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white sm:text-base transition-all duration-300 hover:bg-blue-600 active:scale-95 cursor-pointer"
         onClick={handleUpClick}
       >
         Convert to Uppercase
       </button>
 
       <button
-        className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white transition hover:bg-blue-600 sm:text-base"
+        className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white sm:text-base transition-all duration-300 hover:bg-blue-600 active:scale-95 cursor-pointer"
         onClick={handleLoClick}
       >
         Convert to Lowercase
       </button>
 
       <button
-        className="rounded-lg bg-red-500 px-4 py-2 text-sm text-white transition hover:bg-red-600 sm:text-base"
+        className="rounded-lg bg-red-500 px-4 py-2 text-sm text-white sm:text-base transition-all duration-300 hover:bg-red-600 active:scale-95 cursor-pointer"
         onClick={handleclearClick}
       >
         Clear
       </button>
 
       <button
-        className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white transition hover:bg-blue-600 sm:text-base"
+        className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white sm:text-base transition-all duration-300 hover:bg-blue-600 active:scale-95 cursor-pointer"
         onClick={copyText}
       >
         Copy Text
       </button>
 
       <button
-        className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white transition hover:bg-blue-600 sm:text-base"
+        className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white sm:text-base transition-all duration-300 hover:bg-blue-600 active:scale-95 cursor-pointer"
         onClick={handleOrgnise}
       >
         Organise Your Text
       </button>
 
       <button
-        className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white transition hover:bg-blue-600 sm:text-base"
+        className="rounded-lg bg-blue-500 px-3 py-2 text-sm text-white sm:text-base transition-all duration-300 hover:bg-blue-600 active:scale-95 cursor-pointer"
         onClick={handleExtraspaces}
       >
         Remove Extra Spaces
@@ -161,7 +161,7 @@ return (
       </div>
 
       <button
-        className='mt-5 rounded-lg bg-blue-500 px-4 py-2 transition hover:bg-blue-600'
+        className='mt-5 rounded-lg bg-blue-500 px-4 py-2 transition-all duration-300 hover:bg-blue-600 active:scale-95 cursor-pointer'
         onClick={handlebgChange}
       >
         {btntext}
