@@ -22,7 +22,7 @@ function Nav(props) {
           <div className={`w-full h-0.5 bg-gray-400 rounded transition-all duration-300 ${isOpen ? '-rotate-45 translate-y-2.5':''}`}></div>
         </button>
 
-        <div className={`absolute top-14 left-30 right-3 rounded-xl bg-gray-900 shadow-md p-5 flex flex-col gap-4 z-40 transition-all duration-300
+        <div className={`absolute top-0 left-35 right-0 h-screen bg-[#FFFDD0] shadow-md p-5 flex flex-col gap-4 z-40 transition-all duration-300
           md:static md:flex md:flex-row md:shadow-none md:p-0 md:h-full md:bg-gray-700 md:items-center md:gap-6 ${isOpen ? 'flex' : 'hidden'}
           `}>
          <Link onClick={()=> setIsOpen(false)} className='hover:text-orange-400' to='/'>Home</Link>

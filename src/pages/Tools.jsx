@@ -60,7 +60,7 @@ const copyText = () => {
 navigator.clipboard.writeText(text);
 }
 
-// Fixed word count for empty text and multiple spaces
+
 const words = text.trim() ? text.trim().split(/\s+/).length : 0;
 
 return (
